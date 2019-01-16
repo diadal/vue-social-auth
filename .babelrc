@@ -1,0 +1,11 @@
+{
+  "presets": [
+    [
+      "es2017",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": ["external-helpers"]
+}

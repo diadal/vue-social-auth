@@ -1,0 +1,12 @@
+{
+  "name": "vue-social-auth",
+  "version": "1.2.7",
+  "main": "dist/vue-social-auth.js",
+  "homepage": "https://github.com/diadal/vue-social-auth",
+  "ignore": [
+
+  ],
+  "dependencies": {
+    "vue": "^2.0.0"
+  }
+}
