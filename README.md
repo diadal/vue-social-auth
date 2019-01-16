@@ -160,11 +160,13 @@ class OutController extends Controller
 
 ```
 
-#### AuthController
+#### Auth\AuthController
 
 ```php
 
 <?php
+
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -276,7 +278,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-      
+
         '/sociallogin/google','/sociallogin/facebook','/sociallogin/github','/sociallogin/twitter'
     
     ];
