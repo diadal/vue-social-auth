@@ -1,5 +1,5 @@
 /*!
- * vue-social-auth v1.3.6
+ * vue-social-auth v1.3.7
  * https://github.com/diadal/vue-social-auth
  * Released under the MIT License.
  */
