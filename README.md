@@ -2,9 +2,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/diadal/vue-social-auth/badge.svg)](https://snyk.io/test/github/diadal/vue-social-auth)
 
 
-
-[**WARNING**]: README file is currently in process of rewrite and will be released soon.
-
 # Laravel vue-social-auth
 
 **vue-social-auth** is easily configurable solution for [Vue.js](https://vuejs.org/) & [Laravel](https://laravel.com/) with Socialite that provides Social login using Github, Facebook, Google and other OAuth providers.
