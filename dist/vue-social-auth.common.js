@@ -445,17 +445,7 @@ var defaultOptions = {
    * @context {VueSocialauth}
    */
   bindRequestInterceptor: function ($auth) {
-    var tokenHeader = $auth.options.tokenHeader;
-
-    $auth.$http.interceptors.request.use(function (config) {
-      delete config.headers[tokenHeader];
-      var token = document.head.querySelector('meta[name="csrf-token"]');
-    if (token) {
-        config.headers['X-CSRF-TOKEN'] = token.content;
-    } else {
-    }
-      return config
-    });
+    
   },
 
   /**
