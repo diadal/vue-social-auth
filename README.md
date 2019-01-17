@@ -1,3 +1,8 @@
+[![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
+[![Known Vulnerabilities](https://snyk.io/test/github/diadal/vue-social-auth/badge.svg)](https://snyk.io/test/github/diadal/vue-social-auth)
+
+
+
 [**WARNING**]: README file is currently in process of rewrite and will be released soon.
 
 # Laravel vue-social-auth
