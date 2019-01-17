@@ -1,6 +1,6 @@
 {
   "name": "vue-social-auth",
-  "version": "1.3.8",
+  "version": "1.3.9",
   "description": "Social Authentication library for laravel with Vue.js (SPA)",
   "main": "dist/vue-social-auth.js",
   "module": "dist/vue-social-auth.es2017.js",
