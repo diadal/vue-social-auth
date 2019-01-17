@@ -292,6 +292,12 @@ class VerifyCsrfToken extends Middleware
 
 ```
 
+[travis-image]: https://travis-ci.org/diadal/vue-social-auth.svg?branch=master
+[travis-url]: https://travis-ci.org/diadal/vue-social-auth
+
+[coveralls-image]: https://coveralls.io/repos/diadal/vue-social-auth/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/diadal/vue-social-auth?branch=master
+
 if any issue [check](https://github.com/diadal/vue-social-auth/issues)
 
 ## License
