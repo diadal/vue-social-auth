@@ -77,15 +77,19 @@ Vue.use(VueSocialauth, {
        methods: {
             
             AuthProvider(provider) {
-                var bb = this
+            
+              var self = this
+              
               this.$auth.authenticate(provider).then(response =>{
-                this.SocialLogin(provider,response)
+             
+                self.SocialLogin(provider,response)
 
                 }).catch(err => {
                     console.log({err:err})
                 })
 
             },
+            
             SocialLogin(provider,response){
 
                 this.$http.post('/sociallogin/'+provider,response).then(response => {
@@ -93,13 +97,10 @@ Vue.use(VueSocialauth, {
                     console.log(response.data)
 
                 }).catch(err => {
-
                     console.log({err:err})
                 })
-
-
             },
-
+            
         }
     }
 </script>
@@ -110,7 +111,7 @@ Vue.use(VueSocialauth, {
 ```javascript
 
         {
-          path: '/auth/:provide/callback',
+          path: '/auth/:provider/callback',
           component: {
             template: '<div class="auth-component"></div>'
           }
@@ -125,8 +126,7 @@ Vue.use(VueSocialauth, {
 ```php
 
 Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
-Route::post('auth/{provider}', 'OutController@index')->where('vue', '.*');
-Route::post('auth/{provider}/callback', 'OutController@index')->where('vue', '.*');
+Route::get('auth/{provider}/callback', 'OutController@index')->where('provider', '.*');
 
 
 ```
@@ -145,7 +145,7 @@ class OutController extends Controller
 {
     
 
-     public function __construct()
+    public function __construct()
     {
 
     }
