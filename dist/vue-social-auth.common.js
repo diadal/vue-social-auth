@@ -1,5 +1,5 @@
 /*!
- * vue-social-auth v1.3.9
+ * vue-social-auth v1.4.0
  * https://github.com/diadal/vue-social-auth
  * Released under the MIT License.
  */
@@ -445,6 +445,14 @@ var defaultOptions = {
    * @context {VueSocialauth}
    */
   bindRequestInterceptor: function ($auth) {
+
+    var tokenHeader = $auth.options.tokenHeader;
+
+    $auth.$http.interceptors.request.use(function (config) {
+      delete config.headers[tokenHeader];
+      return config
+    });
+    
     
   },
 

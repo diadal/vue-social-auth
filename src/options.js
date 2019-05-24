@@ -25,6 +25,14 @@ export default {
    * @context {VueSocialauth}
    */
   bindRequestInterceptor: function ($auth) {
+
+    const tokenHeader = $auth.options.tokenHeader;
+
+    $auth.$http.interceptors.request.use((config) => {
+      delete config.headers[tokenHeader]
+      return config
+    })
+    
     
   },
 
