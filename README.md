@@ -110,7 +110,7 @@ Vue.use(VueSocialauth, {
 ```javascript
 
         {
-          path: '/auth/:provide/callback',
+          path: '/auth/:provider/callback',
           component: {
             template: '<div class="auth-component"></div>'
           }
@@ -125,8 +125,8 @@ Vue.use(VueSocialauth, {
 ```php
 
 Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
-Route::post('auth/{provider}', 'OutController@index')->where('vue', '.*');
-Route::post('auth/{provider}/callback', 'OutController@index')->where('vue', '.*');
+Route::post('auth/{provider}', 'OutController@index')->where('provider', '.*');
+Route::post('auth/{provider}/callback', 'OutController@index')->where('provider', '.*');
 
 
 ```
