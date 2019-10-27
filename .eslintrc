@@ -5,7 +5,7 @@
     "sourceType": "module"
   },
   "env": {
-    "browser": true,
+    "browser": true
   },
   "extends": "standard",
   "plugins": [
@@ -13,7 +13,6 @@
   ],
   "rules": {
     "arrow-parens": 0,
-    "generator-star-spacing': 0
+    "generator-star-spacing": 0
   }
 }
-
