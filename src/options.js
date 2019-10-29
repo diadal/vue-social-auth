@@ -138,6 +138,8 @@ export default {
       url: '/auth/vkontakte',
       authorizationEndpoint: 'https://oauth.vk.com/authorize',
       redirectUri: window.location.origin + '/',
+      requiredUrlParams: ['scope'],
+      scope: ['email'],
       scopeDelimiter: ',',
       display: 'popup',
       oauthType: '2.0',
