@@ -32,8 +32,8 @@ export default {
       delete config.headers[tokenHeader]
       return config
     })
-    
-    
+
+
   },
 
   /**
@@ -131,6 +131,17 @@ export default {
       state: 'STATE',
       oauthType: '2.0',
       popupOptions: { width: 527, height: 582 }
+    },
+
+    vkontakte: {
+      name: 'vkontakte',
+      url: '/auth/vkontakte',
+      authorizationEndpoint: 'https://oauth.vk.com/authorize',
+      redirectUri: window.location.origin + '/',
+      scopeDelimiter: ',',
+      display: 'popup',
+      oauthType: '2.0',
+      popupOptions: { width: 580, height: 400 }
     },
 
     live: {

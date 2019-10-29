@@ -1,5 +1,5 @@
 /*!
- * vue-social-auth v1.4.0
+ * vue-social-auth v1.4.2
  * https://github.com/diadal/vue-social-auth
  * Released under the MIT License.
  */
@@ -452,8 +452,8 @@ var defaultOptions = {
       delete config.headers[tokenHeader];
       return config
     });
-    
-    
+
+
   },
 
   /**
@@ -545,12 +545,23 @@ var defaultOptions = {
       url: '/auth/linkedin',
       authorizationEndpoint: 'https://www.linkedin.com/oauth/v2/authorization',
       redirectUri: window.location.origin,
-      requiredUrlParams: ['state'],
+      requiredUrlParams: ['state','scope'],
       scope: ['r_emailaddress'],
       scopeDelimiter: ' ',
       state: 'STATE',
       oauthType: '2.0',
       popupOptions: { width: 527, height: 582 }
+    },
+
+    vkontakte: {
+      name: 'vkontakte',
+      url: '/auth/vkontakte',
+      authorizationEndpoint: 'https://oauth.vk.com/authorize',
+      redirectUri: window.location.origin + '/',
+      scopeDelimiter: ',',
+      display: 'popup',
+      oauthType: '2.0',
+      popupOptions: { width: 580, height: 400 }
     },
 
     live: {
