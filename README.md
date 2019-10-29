@@ -4,7 +4,7 @@
 
 # Laravel vue-social-auth
 
-**vue-social-auth** is easily configurable solution for [Vue.js](https://vuejs.org/) & [Laravel](https://laravel.com/) with Socialite that provides Social login using Github, Facebook, Google and other OAuth providers.
+**vue-social-auth** is easily configurable solution for [Vue.js](https://vuejs.org/) & [Laravel](https://laravel.com/) with Socialite that provides Social login using Github, Facebook, Google, Vkontakte and other OAuth providers.
 
 
 The best part about this library is that it is not strictly coupled to one request handling library like [vue-axios](https://github.com/imcvampire/vue-axios). You will be able to use it with different libraries.
@@ -234,6 +234,11 @@ return [
         'redirect'      => env('GOOGLE_URL'),
     ],
 
+    'vkontakte' => [
+        'client_id'     => env('VKONTAKTE_KEY'),
+        'client_secret' => env('VKONTAKTE_SECRET'),
+        'redirect'      => env('VKONTAKTE_REDIRECT_URI'),
+    ],
 ];
 
 
@@ -259,6 +264,10 @@ GOOGLE_ID=Your ID
 GOOGLE_SECRET=Your Secret
 GOOGLE_URL=https://example.com/auth/google/callback
 
+VKONTAKTE_KEY=Your ID
+VKONTAKTE_SECRET=Your Secret
+VKONTAKTE_REDIRECT_URI=https://example.com/auth/vkontakte/callback
+
 ```
 
 #### VerifyCsrfToken Middleware
@@ -282,8 +291,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
 
-        '/sociallogin/google','/sociallogin/facebook','/sociallogin/github','/sociallogin/twitter'
-
+        '/sociallogin/google','/sociallogin/facebook','/sociallogin/github','/sociallogin/twitter','/sociallogin/vkontakte'
     ];
 }
 
