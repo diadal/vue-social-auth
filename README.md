@@ -7,7 +7,7 @@
 **vue-social-auth** is easily configurable solution for [Vue.js](https://vuejs.org/) & [Laravel](https://laravel.com/) with Socialite that provides Social login using Github, Facebook, Google and other OAuth providers.
 
 
-The best part about this library is that it is not strictly coupled to one request handling library like [vue-axios](https://github.com/imcvampire/vue-axios). You will be able to use it with different libraries. 
+The best part about this library is that it is not strictly coupled to one request handling library like [vue-axios](https://github.com/imcvampire/vue-axios). You will be able to use it with different libraries.
 
 For now it is tested to work with  [vue-resource](https://github.com/pagekit/vue-resource) and [axios](https://github.com/mzabriskie/axios) (using [vue-axios](https://github.com/imcvampire/vue-axios) wrapper).
 
@@ -21,7 +21,7 @@ For now it is tested to work with  [vue-resource](https://github.com/pagekit/vue
 
 ## firstly install `Socialite`
 
-**NOTE:** make sure you config your `Socialite` configuration data in `services.php` & `.env` for more details 
+**NOTE:** make sure you config your `Socialite` configuration data in `services.php` & `.env` for more details
 check  [https://socialiteproviders.netlify.com/](https://socialiteproviders.netlify.com/)
 
 ```bash
@@ -58,6 +58,7 @@ Vue.use(VueSocialauth, {
 <button @click="AuthProvider('facebook')">auth Facebook</button>
 <button @click="AuthProvider('google')">auth Google</button>
 <button @click="AuthProvider('twitter')">auth Twitter</button>
+<button @click="AuthProvider('vkontakte')">auth Vkontakte</button>
 ```
 
 
@@ -75,13 +76,13 @@ Vue.use(VueSocialauth, {
 
       },
        methods: {
-            
+
             AuthProvider(provider) {
-            
+
               var self = this
-              
+
               this.$auth.authenticate(provider).then(response =>{
-             
+
                 self.SocialLogin(provider,response)
 
                 }).catch(err => {
@@ -89,7 +90,7 @@ Vue.use(VueSocialauth, {
                 })
 
             },
-            
+
             SocialLogin(provider,response){
 
                 this.$http.post('/sociallogin/'+provider,response).then(response => {
@@ -100,7 +101,7 @@ Vue.use(VueSocialauth, {
                     console.log({err:err})
                 })
             },
-            
+
         }
     }
 </script>
@@ -143,14 +144,14 @@ use Illuminate\Http\Request;
 
 class OutController extends Controller
 {
-    
+
 
     public function __construct()
     {
 
     }
 
-    
+
     public function index()
     {
 
@@ -177,17 +178,17 @@ use Socialite;
 
 class AuthController extends Controller
 {
-    
+
 
     public function __construct()
     {
 
     }
 
-    
+
     public function SocialSignup($provider)
     {
-        // Socialite will pick response data automatic 
+        // Socialite will pick response data automatic
         $user = Socialite::driver($provider)->stateless()->user();
 
         return response()->json($user);
@@ -282,7 +283,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
 
         '/sociallogin/google','/sociallogin/facebook','/sociallogin/github','/sociallogin/twitter'
-    
+
     ];
 }
 
