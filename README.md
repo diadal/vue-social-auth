@@ -37,9 +37,9 @@ npm install vue-social-auth
 ## Usage
 ```javascript
 import Vue from 'vue'
+import axios from 'axios';
 import VueAxios from 'vue-axios'
 import VueSocialauth from 'vue-social-auth'
-import axios from 'axios';
 
 Vue.use(VueAxios, axios)
 Vue.use(VueSocialauth, {
