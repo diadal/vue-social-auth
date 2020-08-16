@@ -303,6 +303,8 @@ class VerifyCsrfToken extends Middleware
 
 if any issue [check](https://github.com/diadal/vue-social-auth/issues)
 
+also you can buy me a coffee @ [Patreon](https://www.patreon.com/diadal)
+
 ## License
 
 The MIT License (MIT)
