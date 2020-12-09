@@ -61,8 +61,39 @@ Vue.use(VueSocialauth, {
 <button @click="AuthProvider('vkontakte')">auth Vkontakte</button>
 ```
 
+## ♻️ Usage with Nuxt.js
 
-### Vew Component
+Add `vue-social-auth/nuxt` to modules section of `nuxt.config.js`
+
+Module automatically add to $auth or property selected
+
+```js
+{
+  modules: [
+    // Optionally passing options in module configuration
+    ['vue-social-auth/nuxt', { 
+      property: '$auth', // Optional property if the $auth property is being used by another module 
+      providers: {
+        github: {
+          clientId: '',
+          redirectUri: '/auth/github/callback' // Your client app URL
+        }
+      }
+    }]
+  ],
+
+  // Optionally passing options in module top level configuration
+  vueSocialAuth: {
+    property: '$auth'
+    providers: {
+      // ...
+    }
+  }
+}
+```
+
+
+### View Component
 ```javascript
 <script>
 

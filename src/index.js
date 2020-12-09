@@ -13,17 +13,22 @@ function plugin(Vue, options) {
   }
   plugin.installed = true
 
+  const property = options.property || '$auth'
+
   let vueAuthInstance = null;
   Object.defineProperties(Vue.prototype, {
-    $auth: {
+    [property]: {
       get() {
         if (!vueAuthInstance) {
           // Request handler library not found, throw error
-          if (!this.$http) {
+          // verified vue or nuxt instance
+          if (this.$axios) {
+            vueAuthInstance = new VueSocialauth(this.$axios, options)
+          } else if (this.$http) {
+            vueAuthInstance = new VueSocialauth(this.$http, options)
+          } else {
             throw new Error('Request handler instance not found')
           }
-
-          vueAuthInstance = new VueSocialauth(this.$http, options)
         }
         return vueAuthInstance
       }

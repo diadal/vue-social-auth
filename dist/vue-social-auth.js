@@ -85,10 +85,10 @@ function objectExtend(a, b) {
 
 /**
  * Assemble url from two segments
- *
+ * 
  * @author Sahat Yalkabov <https://github.com/sahat>
  * @copyright Method taken from https://github.com/sahat/satellizer
- *
+ * 
  * @param  {String} baseUrl Base url
  * @param  {String} url     URI
  * @return {String}
@@ -110,10 +110,10 @@ function joinUrl(baseUrl, url) {
 
 /**
  * Get full path based on current location
- *
+ * 
  * @author Sahat Yalkabov <https://github.com/sahat>
  * @copyright Method taken from https://github.com/sahat/satellizer
- *
+ * 
  * @param  {Location} location
  * @return {String}
  */
@@ -126,10 +126,10 @@ function getFullUrlPath(location) {
 
 /**
  * Parse query string variables
- *
+ * 
  * @author Sahat Yalkabov <https://github.com/sahat>
  * @copyright Method taken from https://github.com/sahat/satellizer
- *
+ * 
  * @param  {String} Query string
  * @return {String}
  */
@@ -151,7 +151,7 @@ function parseQueryString(str) {
  * Decode base64 string
  * @author Sahat Yalkabov <https://github.com/sahat>
  * @copyright Method taken from https://github.com/sahat/satellizer
- *
+ * 
  * @param  {String} str base64 encoded string
  * @return {Object}
  */
@@ -742,11 +742,11 @@ function StorageFactory(options) {
         window.sessionStorage.removeItem('testKey');
         return new LocalStorage$2(options.storageNamespace)
       } catch (e) {}
-
+      
     case 'cookieStorage':
       return new CookieStorage(options.cookieStorage);
 
-    case 'memoryStorage':
+    case 'memoryStorage': 
     default:
       return new MemoryStorage(options.storageNamespace)
       break;
@@ -755,9 +755,9 @@ function StorageFactory(options) {
 
 /**
  * OAuth2 popup management class
- *
+ * 
  * @author Sahat Yalkabov <https://github.com/sahat>
- * @copyright Class mostly taken from https://github.com/sahat/satellizer
+ * @copyright Class mostly taken from https://github.com/sahat/satellizer 
  * and adjusted to fit vue-social-auth library
  */
 var OAuthPopup = function OAuthPopup(url, name, popupOptions) {
@@ -864,7 +864,7 @@ var OAuth = function OAuth($http, storage, providerConfig, options) {
 };
 
 /**
- * Initialize OAuth1 process
+ * Initialize OAuth1 process 
  * @param{Object} userData User data
  * @return {Promise}
  */
@@ -995,7 +995,7 @@ OAuth2.prototype.init = function init (userData) {
   var url = [this.providerConfig.authorizationEndpoint, this._stringifyRequestParams()].join('?');
 
   this.oauthPopup = new OAuthPopup(url, this.providerConfig.name, this.providerConfig.popupOptions);
-
+    
   return new Promise(function (resolve, reject) {
     this$1.oauthPopup.open(this$1.providerConfig.redirectUri).then(function (response) {
       if (this$1.providerConfig.responseType === 'code' || !this$1.providerConfig.url) {
@@ -1017,7 +1017,7 @@ OAuth2.prototype.init = function init (userData) {
  * Exchange temporary oauth data for access token
  * @author Sahat Yalkabov <https://github.com/sahat>
  * @copyright Method taken from https://github.com/sahat/satellizer
- *
+ * 
  * @param{[type]} oauth  [description]
  * @param{[type]} userData [description]
  * @return {[type]}        [description]
@@ -1065,7 +1065,7 @@ OAuth2.prototype.exchangeForToken = function exchangeForToken (oauth, userData) 
  * Stringify oauth params
  * @author Sahat Yalkabov <https://github.com/sahat>
  * @copyright Method taken from https://github.com/sahat/satellizer
- *
+ * 
  * @return {String}
  */
 OAuth2.prototype._stringifyRequestParams = function _stringifyRequestParams () {
@@ -1193,7 +1193,7 @@ VueSocialauth.prototype.getToken = function getToken () {
 // if (response[this.options.responseDataKey]) {
 //   response = response[this.options.responseDataKey];
 // }
-
+    
 // let token;
 // if (response.access_token) {
 //   if (isObject(response.access_token) && isObject(response.access_token[this.options.responseDataKey])) {
@@ -1223,7 +1223,7 @@ VueSocialauth.prototype.getToken = function getToken () {
 //   } catch (e) {}
 // }
 // }
-
+  
 /**
  * Login user using email and password
  * @param{Object} user         User data
@@ -1290,7 +1290,7 @@ VueSocialauth.prototype.getToken = function getToken () {
 
 /**
  * Authenticate user using authentication provider
- *
+ * 
  * @param{String} provider     Provider name
  * @param{Object} userData     User data
  * @param{Object} requestOptions Request options
@@ -1336,22 +1336,26 @@ function plugin(Vue, options) {
   }
   plugin.installed = true;
 
+  var property = options.property || '$auth';
+
   var vueAuthInstance = null;
-  Object.defineProperties(Vue.prototype, {
-    $auth: {
+  Object.defineProperties(Vue.prototype, ( obj = {}, obj[property] = {
       get: function get() {
         if (!vueAuthInstance) {
           // Request handler library not found, throw error
-          if (!this.$http) {
+          // verified vue or nuxt instance
+          if (this.$axios) {
+            vueAuthInstance = new VueSocialauth(this.$axios, options);
+          } else if (this.$http) {
+            vueAuthInstance = new VueSocialauth(this.$http, options);
+          } else {
             throw new Error('Request handler instance not found')
           }
-
-          vueAuthInstance = new VueSocialauth(this.$http, options);
         }
         return vueAuthInstance
       }
-    }
-  });
+    }, obj ));
+  var obj;
 }
 
 /**
