@@ -1,6 +1,6 @@
 {
   "name": "vue-social-auth",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Social Authentication library for laravel with Vue.js (SPA)",
   "main": "dist/vue-social-auth.js",
   "module": "dist/vue-social-auth.es2017.js",
@@ -80,7 +80,6 @@
     "SPA Social Login"
   ],
   "dependencies": {
-    "graceful-fs": "^4.1.15",
-    "webpack-stream": "^5.2.1"
+    "graceful-fs": "^4.1.15"
   }
 }
