@@ -1,6 +1,6 @@
 {
   "name": "vue-social-auth",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "Social Authentication library for laravel with Vue.js (SPA)",
   "main": "dist/vue-social-auth.js",
   "module": "dist/vue-social-auth.es2017.js",
@@ -56,9 +56,7 @@
     "vue-axios": "^2.0.2",
     "vue-router": "^2.3.0",
     "vuex": "^2.2.1",
-    "webpack": "^4.28.4",
-    "webpack-dev-middleware": "^3.5.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack": "^5.23.0"
   },
   "tags": [
     "auth",
