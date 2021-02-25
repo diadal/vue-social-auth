@@ -1,4 +1,3 @@
-[![Build Status][travis-image]][travis-url]
 [![Known Vulnerabilities](https://snyk.io/test/github/diadal/vue-social-auth/badge.svg)](https://snyk.io/test/github/diadal/vue-social-auth)
 
 
