@@ -1,5 +1,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/diadal/vue-social-auth/badge.svg)](https://snyk.io/test/github/diadal/vue-social-auth)
 
+**NOTE:** The new Version works better
+
+## ♻️ [Update Version Universal-Social-Auth](https://github.com/diadal/universal-social-auth)
 
 # Laravel vue-social-auth
 
