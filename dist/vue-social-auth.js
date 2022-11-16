@@ -1,5 +1,5 @@
 /*!
- * vue-social-auth v1.4.9
+ * vue-social-auth v0.0.1
  * https://github.com/diadal/vue-social-auth
  * Released under the MIT License.
  */
@@ -550,7 +550,7 @@ var defaultOptions = {
       authorizationEndpoint: 'https://www.linkedin.com/oauth/v2/authorization',
       redirectUri: window.location.origin,
       requiredUrlParams: ['state','scope'],
-      scope: ['r_emailaddress'],
+      scope: ['r_liteprofile','r_emailaddress'],
       scopeDelimiter: ' ',
       state: 'STATE',
       oauthType: '2.0',
