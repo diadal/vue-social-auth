@@ -126,7 +126,7 @@ export default {
       authorizationEndpoint: 'https://www.linkedin.com/oauth/v2/authorization',
       redirectUri: window.location.origin,
       requiredUrlParams: ['state','scope'],
-      scope: ['r_emailaddress'],
+      scope: ['r_liteprofile','r_emailaddress'],
       scopeDelimiter: ' ',
       state: 'STATE',
       oauthType: '2.0',
